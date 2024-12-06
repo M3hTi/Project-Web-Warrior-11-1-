@@ -106,6 +106,52 @@ function showData(obj) {
 - Typography adjusts for different screen sizes
 - Maintains readability on mobile devices
 
+## Getting NASA APOD API Key
+
+To use this application, you'll need an API key from NASA. Here's how to get one:
+
+1. Visit the NASA API portal: [https://api.nasa.gov](https://api.nasa.gov)
+2. Scroll down to the "Generate API Key" section
+3. Fill out the form with:
+   - Your First Name
+   - Last Name
+   - Email address
+   - Intended use of the API (optional)
+4. Click "Signup" to get your API key
+5. You'll receive your API key immediately on the website and in your email
+
+### Using the API Key
+
+1. Once you have your API key, replace the `DEMO_KEY` in `script.js` with your actual API key:
+```javascript
+const myAPIKey = "YOUR_API_KEY_HERE";
+```
+
+### API Limits
+- With `DEMO_KEY`: 
+  - Hourly Limit: 30 requests per IP address per hour
+  - Daily Limit: 50 requests per IP address per day
+
+- With Generated API Key:
+  - Hourly Limit: 1,000 requests per hour
+  - Daily Limit: No daily limit
+
+### API Parameters
+The APOD API accepts several parameters:
+- `date`: The date of the APOD image to retrieve (YYYY-MM-DD format)
+- `api_key`: Your API key
+- `hd`: Boolean indicating whether to return HD images (optional)
+
+Example API URL:
+```
+https://api.nasa.gov/planetary/apod?api_key=YOUR_API_KEY&date=2023-11-15
+```
+
+### Security Note
+- Never commit your API key to version control
+- Consider using environment variables for production
+- The `DEMO_KEY` is fine for testing but has limited requests
+
 ## Usage
 1. Open the application in a web browser
 2. Select a date using the date picker
